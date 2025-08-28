@@ -3,8 +3,8 @@ import { IoCallSharp } from "react-icons/io5";
 
 export default function Header() {
   return (
-    <header className="sticky top-0 z-50 w-full bg-white text-black pl-4">
-      <div className="w-full flex flex-col md:flex-row md:justify-end md:items-center gap-2 md:gap-6 bg-white py-2 md:h-12">
+    <header className="sticky top-0 z-50 w-full bg-white text-black px-6">
+      <div className="w-full flex flex-col md:flex-row md:justify-end md:items-center gap-2 md:gap-6 bg-white py-2 md:h-14">
         
         {/* Email */}
         <div className="flex items-center gap-2 md:mr-6">
@@ -15,7 +15,7 @@ export default function Header() {
         </div>
         
         {/* Phones */}
-        <div className="flex items-center gap-2 md:gap-4 pr-0 md:pr-8">
+        <div className="flex items-center gap-2 md:gap-4 pr-14 md:pr-14">
           <div className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center">
             <IoCallSharp color="#FED322" size={16} />
           </div>
@@ -26,6 +26,7 @@ export default function Header() {
             <span className="text-black font-semibold">IN: </span> +1 (845) 213-1121
           </p>
         </div>
+
       </div>
     </header>
   )
