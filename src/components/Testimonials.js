@@ -86,7 +86,7 @@ const Testimonials = () => {
         <section className="py-28  bg-gray-50">
             <div className="">
                 {/* Section Header */}
-                <div className="text-center mb-12">
+                <div className="text-center mb-20">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
                         Testimonials
                     </h2>
