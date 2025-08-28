@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
+import { GoArrowRight ,GoArrowLeft} from "react-icons/go";
 
 const Testimonials = () => {
     const [currentIndex, setCurrentIndex] = useState(0);
@@ -115,9 +116,10 @@ const Testimonials = () => {
                                             className="absolute -left-4 top-1/2 transform -translate-y-1/2 z-20 rounded-full p-2 shadow-lg bg-[#FED322] text-white transition-all duration-300 hover:bg-[#e6c00d] hidden md:block"
                                             aria-label="Previous testimonial"
                                         >
-                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            {/* <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                                            </svg>
+                                            </svg> */}
+                                            <GoArrowLeft color='black'/>
                                         </button>
 
                                         <button
@@ -125,9 +127,7 @@ const Testimonials = () => {
                                             className="absolute -right-4 top-1/2 transform -translate-y-1/2 z-20 rounded-full p-2 shadow-lg bg-[#FED322] text-white transition-all duration-300 hover:bg-[#e6c00d] hidden md:block"
                                             aria-label="Next testimonial"
                                         >
-                                            <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                            </svg>
+                                           <GoArrowRight  color='black'/>
                                         </button>
                                     </>
                                 )}
