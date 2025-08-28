@@ -84,7 +84,7 @@ const Testimonials = () => {
 
     return (
         <section className="py-28  bg-gray-50 test">
-            <div className="test">
+            <div className="">
                 {/* Section Header */}
                 <div className="text-center mb-12">
                     <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
@@ -100,9 +100,9 @@ const Testimonials = () => {
                         {visibleTestimonials.map((testimonial, index) => (
                             <div
                                 key={testimonial.id}
-                                className={`test p-6 transition-all duration-500 transform relative ${index === 1
-                                    ? ' md:scale-110 md:z-10 md:shadow-2xl opacity-100 rounded-xl shadow-lg bg-white'
-                                    : 'md:scale-95 opacity-100 pointer-events-none blur-[1px]'
+                                className={` p-6 transition-all duration-500 transform relative flex flex-col min-h-[300px] ${index === 1
+                                        ? 'md:scale-110 md:z-10 md:shadow-2xl opacity-100 rounded-xl shadow-lg bg-white'
+                                        : 'md:scale-95 opacity-100 pointer-events-none blur-[1px]'
                                     }`}
                             >
                                 {/* Navigation Arrows - Positioned on middle card */}
@@ -137,41 +137,43 @@ const Testimonials = () => {
                                 </div>
 
                                 {/* Testimonial Content */}
-                                <div className="mb-6">
+                                <div className=" ">
                                     <p className="text-gray-700 text-base leading-relaxed text-center">
                                         {testimonial.content}
                                     </p>
                                 </div>
 
-                                {/* Bottom Quote Icon */}
-                                <div className="absolute bottom-4 right-6">
-                                    <FaQuoteRight size={40} className={`${index === 1 ? 'text-gray-300' : 'text-[#FED322]'
-                                        }`} />
-                                </div>
 
-                                {/* Author Info - Name first, then image */}
-                                <div className="flex flex-col items-center relative test">
-                                    {/* Author Name - Comes first in visual order */}
-                                    <div className="text-center z-10">
+                                {/* Author Info - Fixed at bottom with image 50% outside */}
+                                <div className="mt-auto relative">
+                                    {/* Author Name */}
+                                    <div className="text-center mb-2 ">
                                         <h4 className={`text-lg font-semibold ${index === 1 ? 'text-gray-900' : 'text-gray-500'
                                             }`}>
                                             {testimonial.author}
                                         </h4>
                                     </div>
 
-                                    {/* Author Image - Positioned above the name visually */}
-                                    <div className="">
-                                        <div className={`w-16 h-16 rounded-full p-1 bg-white ${index === 1 ? 'border-2 border-[#FED322]' : 'border-2 border-gray-300'
+                                    {/* Author Image - Positioned 50% outside the bottom */}
+                                    <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2">
+                                        <div className={`w-18 h-18 rounded-full p-1 bg-white ${index === 1 ? 'border-2 border-[#FED322]' : 'border-2 border-gray-300'
                                             }`}>
-                                            <Image
-                                                src={testimonial.image}
-                                                alt={testimonial.author}
-                                                width={64}
-                                                height={64}
-                                                className="w-full h-full rounded-full object-cover"
-                                            />
+                                            <div className="w-full h-full bg-gray-300 rounded-full flex items-center justify-center overflow-hidden">
+                                                <Image
+                                                    src={testimonial.image}
+                                                    alt={testimonial.author}
+                                                    width={80}
+                                                    height={80}
+                                                    className=" rounded-full object-cover"
+                                                />
+                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                                                                {/* Bottom Quote Icon */}
+                                <div className="absolute bottom-4 right-6">
+                                    <FaQuoteRight size={40} className={`${index === 1 ? 'text-gray-300' : 'text-[#FED322]'
+                                        }`} />
                                 </div>
                             </div>
                         ))}
