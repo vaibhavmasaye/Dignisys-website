@@ -1,10 +1,10 @@
-
+import ContactUs from '@/components/ContactUs';
 
 export default function Home() {
   return (
    <div>
     
-    <p> Test</p>
+<ContactUs />
    </div>
   );
 }

@@ -3,7 +3,7 @@ import { IoCallSharp } from "react-icons/io5";
 
 export default function Header() {
   return (
-   <header className="w-full bg-white text-[#0A0A0A]">
+   <header className="w-full bg-white text-[#0A0A0A] px-10">
   <div className="w-full flex flex-col sm:flex-row sm:justify-end sm:items-center gap-3 sm:gap-6 bg-white py-3 px-4 sm:px-6 sm:h-14">
     
     {/* Email */}
