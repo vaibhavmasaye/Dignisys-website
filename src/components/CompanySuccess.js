@@ -19,8 +19,8 @@ const CompanySuccess = () => {
     stats.forEach((stat, i) => {
       let start = 0;
       const end = stat.value;
-      const duration = 10000; // ms
-      const stepTime = Math.max(Math.floor(duration / end), 20);
+      const duration = 2000; // total animation time
+      const stepTime = Math.max(Math.floor(duration / end), 0);
 
       const timer = setInterval(() => {
         start += 1;
@@ -60,7 +60,7 @@ const CompanySuccess = () => {
             {stats.map((stat, i) => (
               <div key={stat.id} className="group">
                 <div
-                  className="text-4xl md:text-5xl text-gray-800 mb-3 font-bold flip"
+                  className="text-4xl md:text-5xl text-gray-800 mb-3 font-bold scaleFade"
                 >
                   {animatedValues[i]}
                 </div>
@@ -71,19 +71,24 @@ const CompanySuccess = () => {
         </div>
       </section>
 
+      {/* Animation Styles */}
       <style jsx>{`
-        .flip {
+        .scaleFade {
           display: inline-block;
-          animation: flipIn 0.5s ease-in-out;
+          animation: scaleFadeIn 0.4s ease-in-out;
         }
-        @keyframes flipIn {
+
+        @keyframes scaleFadeIn {
           0% {
-            transform: rotateX(90deg);
+            transform: scale(0.6);
             opacity: 0;
           }
-          100% {
-            transform: rotateX(0deg);
+          80% {
+            transform: scale(1.1);
             opacity: 1;
+          }
+          100% {
+            transform: scale(1);
           }
         }
       `}</style>
