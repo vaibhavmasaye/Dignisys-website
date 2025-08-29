@@ -50,39 +50,40 @@ const Navbar = () => {
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
-            {navItems.map((item) => (
-              <Link
-                key={item.name}
-                href={item.path}
-                className={`relative transition-colors duration-200 ${
-                  pathname === item.path
-                    ? `font-bold ${isScrolled ? 'text-gray-900' : 'text-black'}`
-                    : `font-medium ${
-                        isScrolled
-                          ? 'text-gray-700 hover:text-gray-900'
-                          : 'text-black/90 hover:text-black'
-                      }`
-                }`}
-              >
-                {item.name}
-                {pathname === item.path && (
-                  <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FED322]"></span>
-                )}
-              </Link>
-            ))}
+         <div className="hidden md:flex items-center space-x-6 md:space-x-8">
+  {navItems.map((item) => (
+    <Link
+      key={item.name}
+      href={item.path}
+      className={`relative transition-colors duration-200 text-sm md:text-xs lg:text-lg ${
+        pathname === item.path
+          ? `font-bold ${isScrolled ? 'text-gray-900' : 'text-black'}`
+          : `font-medium ${
+              isScrolled
+                ? 'text-gray-700 hover:text-gray-900'
+                : 'text-black/90 hover:text-black'
+            }`
+      }`}
+    >
+      {item.name}
+      {pathname === item.path && (
+        <span className="absolute -bottom-1 left-0 w-full h-0.5 bg-[#FED322]"></span>
+      )}
+    </Link>
+  ))}
 
-            {/* Contact Button */}
-            <Link
-              href="/contact"
-              className="ml-4 px-6 py-2 rounded-full border border-[#FED322] bg-[#FED322] text-black hover:bg-[#f8c90e] hover:border-[#f8c90e] transition-all duration-200"
-            >
-              Contact Us →
-            </Link>
-          </div>
+  {/* Contact Button */}
+  <Link
+    href="/contact"
+    className="ml-2 md:ml-4 px-4 md:px-6 py-2 rounded-full border border-[#FED322] bg-[#FED322] text-black text-sm md:text-xs lg:text-lg hover:bg-[#f8c90e] hover:border-[#f8c90e] transition-all duration-200"
+  >
+    Contact Us →
+  </Link>
+</div>
+
 
           {/* Mobile Menu Button */}
-          <div className="lg:hidden">
+          <div className="md:hidden">
             <button className="p-2 rounded-md text-black">
               <svg
                 className="h-6 w-6"
