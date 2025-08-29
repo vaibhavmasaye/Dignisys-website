@@ -53,13 +53,13 @@ const Testimonials = () => {
         }
     ];
 
-    const nextTestimonial = () => {
+  const nextTestimonial = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex + 1) % testimonials.length);
-    };
+    }, [testimonials.length]);
 
-    const prevTestimonial = () => {
+   const prevTestimonial = useCallback(() => {
         setCurrentIndex((prevIndex) => (prevIndex - 1 + testimonials.length) % testimonials.length);
-    };
+    }, [testimonials.length]);
 
     const getVisibleTestimonials = () => {
         const total = testimonials.length;
@@ -79,7 +79,7 @@ const Testimonials = () => {
         }, 5000);
 
         return () => clearInterval(interval);
-    }, []);
+    }, [nextTestimonial]);
 
     const visibleTestimonials = getVisibleTestimonials();
 

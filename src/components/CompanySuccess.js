@@ -3,13 +3,15 @@
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
 
+const stats = [
+  { id: 1, title: 'Custom Apps', value: 200 },
+  { id: 2, title: 'Happy Customers', value: 45 },
+  { id: 3, title: 'Hours of Work', value: 3560 },
+  { id: 4, title: 'Development Awards', value: 750 },
+];
+
 const CompanySuccess = () => {
-  const stats = [
-    { id: 1, title: 'Custom Apps', value: 200 },
-    { id: 2, title: 'Happy Customers', value: 45 },
-    { id: 3, title: 'Hours of Work', value: 3560 },
-    { id: 4, title: 'Development Awards', value: 750 },
-  ];
+
 
   const [animatedValues, setAnimatedValues] = useState(
     stats.map(() => 0) // start from 0
