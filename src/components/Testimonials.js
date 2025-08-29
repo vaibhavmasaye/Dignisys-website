@@ -1,6 +1,6 @@
 // components/Testimonials.js
 "use client"
-import { useState, useEffect } from 'react';
+import { useState, useEffect ,useCallback} from 'react';
 import Image from 'next/image';
 import { FaQuoteLeft, FaQuoteRight } from "react-icons/fa6";
 import { GoArrowRight ,GoArrowLeft} from "react-icons/go";
