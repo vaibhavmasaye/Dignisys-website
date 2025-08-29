@@ -1,7 +1,6 @@
 // components/MobileMenu.js
 'use client';
 
-import { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 
@@ -19,7 +18,7 @@ const MobileMenu = ({ isOpen, onClose, isScrolled }) => {
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 md:hidden">
+    <div className="fixed inset-0 z-50 lg:hidden bg-white">
       {/* Backdrop */}
       <div className="absolute inset-0 bg-black/50" onClick={onClose}></div>
       

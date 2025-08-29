@@ -1,7 +1,7 @@
 // components/Navbar.js
 'use client';
 
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import MobileMenu from './MobileMenu';
@@ -12,7 +12,6 @@ const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [headerHeight, setHeaderHeight] = useState(0);
   const pathname = usePathname();
-  const headerRef = useRef(null);
 
   useEffect(() => {
     // Get header height from the DOM
@@ -49,33 +48,37 @@ const Navbar = () => {
     { name: 'Career', path: '/career' },
   ];
 
+  // Always show white background on mobile screens (lg breakpoint and below)
+  const isMobileScreen = typeof window !== 'undefined' && window.innerWidth < 1024;
+  const shouldShowWhiteBg = isScrolled || isMobileScreen;
+
   return (
     <>
       <nav 
         className={`fixed w-full z-50 transition-all duration-300 ${
-          isScrolled 
+          shouldShowWhiteBg 
             ? 'bg-white shadow-md top-0' 
             : `bg-transparent top-[${headerHeight}px]`
         }`}
-        style={!isScrolled ? { top: `${headerHeight}px` } : {}}
+        style={!shouldShowWhiteBg ? { top: `${headerHeight}px` } : {}}
       >
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="px-8 sm:px-10 md:px-12 lg:px-14">
           <div className="flex items-center justify-between h-16 md:h-20">
             {/* Logo */}
             <div className="flex-shrink-0">
               <Link href="/" className="flex items-center">
                 <Image
-                         src="/assets/logo.png"
-                         alt="DIGNISYS Logo"
-                         width={150}
-                         height={50}
-                         className="h-8 sm:h-9 md:h-10 w-auto"
-                       />
+                  src="/assets/logo.png"
+                  alt="DIGNISYS Logo"
+                  width={150}
+                  height={50}
+                  className="h-8 sm:h-9 md:h-10 w-auto"
+                />
               </Link>
             </div>
 
-            {/* Desktop Navigation */}
-            <div className="hidden md:flex items-center space-x-8">
+            {/* Desktop Navigation - Show on lg screens and above */}
+            <div className="hidden lg:flex items-center space-x-8">
               {navItems.map((item) => (
                 <Link
                   key={item.name}
@@ -96,20 +99,17 @@ const Navbar = () => {
               {/* Contact Button */}
               <Link
                 href="/contact"
-                className={`ml-4 px-6 py-2 rounded-full border transition-all duration-200 border-[#FED322] bg-[#FED322] text-black hover:bg-[#f8c90e] hover:border-[#f8c90e]
-                }`}
+                className="ml-4 px-6 py-2 rounded-full border border-[#FED322] bg-[#FED322] text-black hover:bg-[#f8c90e] hover:border-[#f8c90e] transition-all duration-200"
               >
                 Contact Us →
               </Link>
             </div>
 
-            {/* Mobile Menu Button */}
-            <div className="md:hidden">
+            {/* Mobile Menu Button - Show on screens smaller than lg */}
+            <div className="lg:hidden">
               <button
                 onClick={() => setIsMobileMenuOpen(true)}
-                className={`p-2 rounded-md ${
-                  isScrolled ? 'text-gray-900' : 'text-black'
-                }`}
+                className="p-2 rounded-md text-gray-900" // Always dark text on mobile
               >
                 <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
